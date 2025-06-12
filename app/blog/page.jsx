@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Star, Calendar, User, ArrowLeft } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
+import {useRouter} from "next/navigation"
 
 function useScrollAnimation(options = {}) {
   const ref = useRef(null)
@@ -45,11 +46,13 @@ function useScrollAnimation(options = {}) {
 
 function BlogPostCard({ post, index }) {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
+  const router = useRouter()
+
 
   return (
     <Card
       ref={ref}
-      className={`bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 ${
+      className={`bg-slate-800/50 border-purple-500/20 backdrop-blur-sm hover:border-purple-400/40 transition-all duration-100 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 ${
         isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
       }`}
       style={{
@@ -89,6 +92,7 @@ function BlogPostCard({ post, index }) {
         <CardDescription className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</CardDescription>
 
         <Button
+        onClick={() => router.push(`/blog/${post.id}`)}
           variant="outline"
           className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white w-full transition-all duration-300 hover:transform hover:scale-105"
         >
@@ -100,6 +104,7 @@ function BlogPostCard({ post, index }) {
 }
 
 export default function BlogPage() {
+
   const [headerRef, headerVisible] = useScrollAnimation()
   const [newsletterRef, newsletterVisible] = useScrollAnimation()
 

@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { Star, BookOpen, Users, Award, ArrowRight } from "lucide-react";
 
 const Header = () => {
   return (
@@ -12,7 +11,7 @@ const Header = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-slate-900/50 backdrop-blur-sm border-b border-purple-500/20 rounded-full">
             <div className="flex justify-between items-center py-2">
               <div className="flex items-center space-x-2">
-                <Star className="h-8 w-8 text-purple-400" />
+        
                 <Link href="/" className="  text-lg sm:text-2xl font-bold text-white">
                   Galaxy Academy
                 </Link>

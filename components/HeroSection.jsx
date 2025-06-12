@@ -7,6 +7,10 @@ const HeroSection = () => {
    <>
    
    <div className="max-w-7xl mx-auto text-center relative">
+   <Star className="h-8 w-8 text-purple-400 rotate-45 absolute" />
+   <Star className="h-3 w-3 text-purple-400 rotate-45 absolute right-3 top-5 " />
+   <Star className="h-6 w-6 text-purple-400 -rotate-12 absolute right-20 top-20 " />
+   <Star className="h-5 w-5  text-purple-400 rotate-140 absolute bottom-0 left-[150px]" />
   
           <div className="mb-8">
                  <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 opacity-0 animate-fade-in-up">
