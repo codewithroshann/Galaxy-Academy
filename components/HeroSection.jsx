@@ -1,8 +1,11 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { Star, BookOpen, Users, Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RocketModel from "./SplineModel/RocketModel";
 const HeroSection = () => {
+  
+
   return (
    <>
    
@@ -11,6 +14,7 @@ const HeroSection = () => {
    <Star className="h-3 w-3 text-purple-400 rotate-45 absolute right-3 top-5 " />
    <Star className="h-6 w-6 text-purple-400 -rotate-12 absolute right-20 top-20 " />
    <Star className="h-5 w-5  text-purple-400 rotate-140 absolute bottom-0 left-[150px]" />
+
   
           <div className="mb-8">
                  <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 opacity-0 animate-fade-in-up">
@@ -19,12 +23,12 @@ const HeroSection = () => {
                 Galaxy Academy
               </span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 opacity-0 animate-fade-in-up animation-delay-300">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 opacity-0 animate-fade-in-up">
               Explore the universe of knowledge with our cutting-edge
               educational platform. Join thousands of students on their journey
               to academic excellence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up animation-delay-600">
+            <div className="flex flex-wrap sm:flex-row gap-4 justify-center opacity-0 animate-fade-in-up animation-delay-600">
               <Button
                 size="lg"
                 className="bg-purple-600 hover:bg-purple-700 transition-all duration-300 hover:transform hover:scale-105"

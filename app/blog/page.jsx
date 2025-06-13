@@ -47,6 +47,7 @@ function useScrollAnimation(options = {}) {
 function BlogPostCard({ post, index }) {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 })
   const router = useRouter()
+  
 
 
   return (
@@ -107,6 +108,26 @@ export default function BlogPage() {
 
   const [headerRef, headerVisible] = useScrollAnimation()
   const [newsletterRef, newsletterVisible] = useScrollAnimation()
+  const [stars, setStars] = useState([])
+
+  // Generate random stars for the background
+  useEffect(() => {
+    const generateStars = () => {
+      const newStars = []
+      for (let i = 0; i < 100; i++) {
+        newStars.push({
+          id: i,
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          size: `${0.5 + Math.random() * 2}px`,
+          animationDuration: `${3 + Math.random() * 7}s`,
+        })
+      }
+      setStars(newStars)
+    }
+
+    generateStars()
+  }, [])
 
   const blogPosts = [
     {
@@ -167,7 +188,21 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900">
-    
+             <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {stars.map((star) => (
+          <div
+            key={star.id}
+            className="absolute bg-white rounded-full animate-pulse"
+            style={{
+              top: star.top,
+              left: star.left,
+              width: star.size,
+              height: star.size,
+              animationDuration: star.animationDuration,
+            }}
+          />
+        ))}
+        </div>
       {/* Header */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
